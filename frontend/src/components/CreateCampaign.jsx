@@ -28,24 +28,23 @@ const CreateCampaign = ( ) => {
     }
   };
 
-  const uploadToIPFS = async (file) => {
-    const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
-    const data = new FormData();
-    data.append('file', file);
+  const getImageFromIPFS = async () => {
+    if (!imageFile) return "";
+    const formData = new FormData();
+    formData.append("file", imageFile);
 
-    const metadata = JSON.stringify({ name: 'campaign-image' });
-    data.append('pinataMetadata', metadata);
-
-    const config = {
+    const resFile = await axios({
+      method: "post",
+      url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+      data: formData,
       headers: {
-        'Content-Type': 'multipart/form-data',
-        pinata_api_key: import.meta.env.VITE_PINATA_API_KEY,
-        pinata_secret_api_key: import.meta.env.VITE_PINATA_API_SECRET,
+        'pinata_api_key': "0b2a7f7407084e8179e6",
+        'pinata_secret_api_key': "7b3a9282c34557195331529c3802da0ccd7f357abe4e5f5154906713994d1d82",
+        "Content-Type": "multipart/form-data"
       },
-    };
+    });
 
-    const res = await axios.post(url, data, config);
-    return `https://gateway.pinata.cloud/ipfs/${res.data.IpfsHash}`;
+    return `ipfs/${resFile.data.IpfsHash}`;
   };
 
   const handleSubmit = async (e) => {
@@ -55,13 +54,9 @@ const CreateCampaign = ( ) => {
     setTxHash('');
 
     try {
-      if (!imageFile) {
-        setError('Please upload an image');
-        setIsLoading(false);
-        return;
-      }
+      
 
-      const imageUrl = await uploadToIPFS(imageFile);
+      const imageUrl = await getImageFromIPFS()
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
       const contractAddress = '0xed5A12c409b7c138dB90C6D8961A26fbf55880b3';
@@ -71,7 +66,7 @@ const CreateCampaign = ( ) => {
         form.name,
         form.description,
         imageUrl,
-        ethers.utils.parseEther(form.goal),
+        ethers.parseEther(form.goal),
         parseInt(form.deadline)
       );
 
@@ -79,6 +74,8 @@ const CreateCampaign = ( ) => {
       setTxHash(tx.hash);
       setForm({ name: '', description: '', goal: '', deadline: '' });
       setImageFile(null);
+       
+      
     } catch (err) {
       setError(err.message || 'Transaction failed');
     }
@@ -142,9 +139,7 @@ const CreateCampaign = ( ) => {
       {txHash && (
         <div className="success-message">
           ✅ Campaign created!{' '}
-          <a href={`https://etherscan.io/tx/${txHash}`} target="_blank" rel="noopener noreferrer">
-            View on Etherscan
-          </a>
+          
         </div>
       )}
       {error && <div className="error-message">❌ {error}</div>}
