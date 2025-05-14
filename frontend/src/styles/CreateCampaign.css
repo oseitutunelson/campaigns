@@ -1,0 +1,62 @@
+.create-campaign-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input,
+  .textarea,
+  .file-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .submit-button {
+    padding: 12px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submit-button:hover {
+    background-color: #218838;
+  }
+  
+  .success-message {
+    margin-top: 20px;
+    color: green;
+    text-align: center;
+  }
+  
+  .error-message {
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+  }
+  

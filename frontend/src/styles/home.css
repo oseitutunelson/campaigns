@@ -1,0 +1,358 @@
+.header-section {
+     text-align: center;
+    padding: 4rem 8%;
+}
+  
+  .content {
+    max-width: 100%;
+  }
+  
+  .badge {
+    background-color: #e6f4ea;
+    color: #34a853;
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 6rem;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .volunteer-image {
+    width: 100%;
+  }
+  
+  .donation-form-box {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    z-index: 2;
+  }
+  
+  .donation-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .form-control {
+    flex: 1 1 20%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    min-width: 150px;
+  }
+  
+  .donate-button {
+    background-color: #00c896;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .donate-button:hover {
+    background-color: #00b285;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .text-container {
+      max-width: 100%;
+    }
+  
+    .donation-form-box {
+      position: static;
+      transform: none;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  
+    .donation-form {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  
+    .form-control, .donate-button {
+      width: 100%;
+    }
+  }
+  .purpose-section {
+    padding: 4rem 8%;
+    background-color: #ffffff;
+  }
+  
+  .purpose-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .purpose-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .purpose-description {
+    max-width: 500px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .purpose-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1;
+    min-width: 280px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-image {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+    color: #666;
+  }
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+  
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    width: 90%;
+    padding: 2rem;
+  }
+  
+  .step-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3EB489;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  .step-content {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .step-info {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .step-details {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .icon {
+    font-size: 1.2rem;
+    color: green;
+  }
+  
+  .detail-text {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .step-image {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .step {
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-image {
+      max-width: 100%;
+    }
+  }
+  .step-section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .step-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+  
+  /* Grid layout for steps, responsive */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    position: relative;
+  }
+  
+  /* Individual step card */
+  .step-card {
+    position: relative;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+   
+  }
+  .campaign_button{
+    background-color: transparent;
+    border: 1px solid #34a853;
+    font-size: 1rem 0;
+    margin: 1rem;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 30px;
+  }
+  .campaign_button:hover{
+    background-color: #34a853;
+    border: none;
+    transition: 0.3s ease-in;
+    color: #fff;
+  }
+  /* Circle with step number */
+  .circle {
+   
+    border-radius: 50%;
+    background-color: #fff;
+    color: #34a853;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 05px 25px;
+  }
+  
+  /* Step title */
+  .step-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  /* Step description */
+  .step-description {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  /* Horizontal line between steps, positioned absolutely */
+  .line {
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    z-index: -1;
+  }
+  
+  /* For larger screens, adjust the line to connect properly */
+  @media (min-width: 768px) {
+    .line {
+      right: -20px;
+    }
+  }
+  
+   
