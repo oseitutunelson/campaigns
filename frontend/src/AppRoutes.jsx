@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter,Routes,Route} from 'react-router-dom';
 import App from './App'
 import CreateCampaign from './components/CreateCampaign'; 
- 
+import Campaigns from './components/Campaigns';
+import CampaignDetail from './components/CampaignDetail';
 
 function AppRoutes() {
 
@@ -12,7 +13,8 @@ function AppRoutes() {
   <Routes>
     <Route path="/" element={<App/>} />
     <Route path="/createcampaign" element={<CreateCampaign/>} />
-
+    <Route path="/campaigns" element={<Campaigns/>} />
+    <Route path="/campaign/:id" element={<CampaignDetail />} />
     </Routes>
 </BrowserRouter>
     </>

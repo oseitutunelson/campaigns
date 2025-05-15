@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import '../styles/home.css'
 import { Link } from 'react-router-dom';
+import { ethers } from 'ethers';
+import FundABI from '../contracts/Fund.sol/Fund.json';  
+
+const CONTRACT_ADDRESS = "0x47115DaBc70D1D1ef959bbCd45BEF9BB8d17dD2F";
+
+
+
+
 
  
 const steps = [
@@ -32,7 +40,40 @@ const steps = [
 
  
 const Home = () => {
+  const [latestCampaigns, setLatestCampaigns] = useState([]);
+  useEffect(() => {
+    const loadLatestCampaigns = async () => {
+      try {
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const signer =await provider.getSigner();
+        const fundContract = new ethers.Contract(CONTRACT_ADDRESS, FundABI.abi, signer);
   
+        const creators = await fundContract.getAllCampaigns();
+        const limitedCampaigns = [];
+  
+        for (let i = creators.length - 1; i >= 0 && limitedCampaigns.length < 4; i--) {
+          const creator = creators[i];
+          const campaign = await fundContract.campaigns(creator);
+  
+          limitedCampaigns.push({
+            creator,
+            name: campaign.name,
+            description: campaign.description,
+            imageUrl: campaign.imageUrl,
+            goal: ethers.utils.formatEther(campaign.fundingGoal),
+            balance: ethers.utils.formatEther(campaign.balance),
+            deadline: Number(campaign.deadline),
+          });
+        }
+  
+        setLatestCampaigns(limitedCampaigns);
+      } catch (error) {
+        console.error("Error loading campaigns:", error);
+      }
+    };
+  
+    loadLatestCampaigns();
+  }, []);
   return (
     <>
     <div className="home">
@@ -150,7 +191,25 @@ const Home = () => {
  
     
 
- 
+    <section className="latest-campaigns-section">
+  <h2 className="section-title">Featured Campaigns</h2>
+  <div className="campaigns-grid">
+    {latestCampaigns.map((c, index) => (
+      <div key={index} className="campaign-card">
+        <img src={c.imageUrl} alt={c.name} className="campaign-img" />
+        <h3 className="campaign-name">{c.name}</h3>
+        <p className="campaign-description">{c.description}</p>
+        <p><strong>Goal:</strong> {c.goal} ETH</p>
+        <p><strong>Raised:</strong> {c.balance} ETH</p>
+        <p><strong>Deadline:</strong> {new Date(c.deadline * 1000).toLocaleDateString()}</p>
+      </div>
+    ))}
+  </div>
+  <div className="see-more-button-wrapper">
+    <Link to="/campaigns"><button className="see-more-button">See More Campaigns</button></Link>
+  </div>
+</section>
+
 
     </div>
   

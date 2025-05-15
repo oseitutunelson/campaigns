@@ -59,7 +59,7 @@ const CreateCampaign = ( ) => {
       const imageUrl = await getImageFromIPFS()
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
-      const contractAddress = '0xed5A12c409b7c138dB90C6D8961A26fbf55880b3';
+      const contractAddress = '0x47115DaBc70D1D1ef959bbCd45BEF9BB8d17dD2F';
       const fundContract = new ethers.Contract(contractAddress, contract.abi, signer);
 
       const tx = await fundContract.createCampaign(
