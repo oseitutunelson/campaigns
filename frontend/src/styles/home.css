@@ -355,46 +355,14 @@
     }
   }
   
-  .latest-campaigns-section {
-    padding: 40px 20px;
+   .latest-campaigns-section{
     text-align: center;
-    background-color: #f8f9fa;
-  }
-  
-  .campaigns-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .campaign-card {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 300px;
-    padding: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: 0.3s;
-  }
-  
-  .campaign-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .campaign-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .campaign-name {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 600;
-  }
+    margin-top: 3rem;
+   }
+   .latest-campaigns-section h2{
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+   }
   
   .see-more-button-wrapper {
     margin-top: 20px;
@@ -413,4 +381,69 @@
   .see-more-button:hover {
     background-color: #006666;
   }
+  .c-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+  }
   
+  .c-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    width: 300px;
+    margin-left: 10px;
+  }
+  
+  .c-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+  }
+  
+  .c-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .c-card .content {
+    padding: 20px 15px;
+  }
+  
+  .c-card .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  
+  }
+  .c-card .title a{
+    text-decoration: none;
+    color: #1333e9;
+  }
+  .c-card .description {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-bottom: 12px;
+  }
+  
+  .c-card .details {
+    font-size: 0.85rem;
+    color: #374151;
+  }
+  
+  .c-card .status-open {
+    color: #d97706;
+    font-weight: 600;
+  }
+  
+  .c-card .status-funded {
+    color: #059669;
+    font-weight: 600;
+  }
+  .campaign-title{
+    margin: 1rem 2rem;
+    font-size: 2.75rem;
+  }

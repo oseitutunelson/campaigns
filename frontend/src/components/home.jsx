@@ -40,40 +40,45 @@ const steps = [
 
  
 const Home = () => {
-  const [latestCampaigns, setLatestCampaigns] = useState([]);
+  const [campaigns, setCampaigns] = useState([]);
+  
   useEffect(() => {
-    const loadLatestCampaigns = async () => {
+    const loadCampaigns = async () => {
       try {
-        const provider = new ethers.BrowserProvider(window.ethereum);
-        const signer =await provider.getSigner();
-        const fundContract = new ethers.Contract(CONTRACT_ADDRESS, FundABI.abi, signer);
-  
-        const creators = await fundContract.getAllCampaigns();
-        const limitedCampaigns = [];
-  
-        for (let i = creators.length - 1; i >= 0 && limitedCampaigns.length < 4; i--) {
-          const creator = creators[i];
-          const campaign = await fundContract.campaigns(creator);
-  
-          limitedCampaigns.push({
-            creator,
-            name: campaign.name,
-            description: campaign.description,
-            imageUrl: campaign.imageUrl,
-            goal: ethers.utils.formatEther(campaign.fundingGoal),
-            balance: ethers.utils.formatEther(campaign.balance),
-            deadline: Number(campaign.deadline),
+        const provider = new ethers.JsonRpcProvider("https://rpc-amoy.polygon.technology/");
+    //    const signer =await provider.getSigner();
+        const contract = new ethers.Contract(CONTRACT_ADDRESS, FundABI.abi, provider);
+
+        const count = await contract.getAllCampaigns();
+        const details = await contract.getAllCampaignDetails();
+
+        const maxToShow = 4;
+        const campaignList = [];
+
+        for (let i = 0; i < Math.min(maxToShow, Number(count)); i++) {
+          campaignList.push({
+            name: details[0][i],
+            description: details[1][i],
+            imageUrl: details[2][i],
+            goal: ethers.formatEther(details[3][i]),
+            balance: ethers.formatEther(details[4][i]),
+            deadline: details[5][i],
+            fundingSuccessful: details[6][i],
+            campaignExist: details[7][i],
+            creator: details[8][i],
           });
         }
-  
-        setLatestCampaigns(limitedCampaigns);
+
+        setCampaigns(campaignList);
       } catch (error) {
         console.error("Error loading campaigns:", error);
       }
     };
-  
-    loadLatestCampaigns();
+
+    loadCampaigns();
   }, []);
+
+
   return (
     <>
     <div className="home">
@@ -192,19 +197,38 @@ const Home = () => {
     
 
     <section className="latest-campaigns-section">
-  <h2 className="section-title">Featured Campaigns</h2>
-  <div className="campaigns-grid">
-    {latestCampaigns.map((c, index) => (
-      <div key={index} className="campaign-card">
-        <img src={c.imageUrl} alt={c.name} className="campaign-img" />
-        <h3 className="campaign-name">{c.name}</h3>
-        <p className="campaign-description">{c.description}</p>
-        <p><strong>Goal:</strong> {c.goal} ETH</p>
-        <p><strong>Raised:</strong> {c.balance} ETH</p>
-        <p><strong>Deadline:</strong> {new Date(c.deadline * 1000).toLocaleDateString()}</p>
+      <h2>Initiate your fundraising <br/>campaign today</h2>
+    <div className="c-grid">
+      {campaigns.map((c, idx) => (
+        <div key={idx} className="c-card">
+        <img src={`https://gateway.pinata.cloud/${c.imageUrl}`} alt={c.name} />
+        <div className="content">
+          {/* Link to individual campaign page */}
+          <h3 className="title">
+            <Link to={`/campaign/${idx}`}>{c.name}</Link>
+          </h3>
+    
+          {/* Shortened description */}
+          <p className="description">
+            {c.description.length > 100
+              ? c.description.substring(0, 100) + '...'
+              : c.description}
+          </p>
+    
+          <div className="details">
+            <p><strong>Goal:</strong> {c.goal} ETH</p>
+            <p><strong>Raised:</strong> {c.balance} ETH</p>
+            <p>
+              <strong>Status:</strong>{" "}
+              <span className={c.fundingSuccessful ? "status-funded" : "status-open"}>
+                {c.fundingSuccessful ? "Funded" : "Open"}
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
-    ))}
-  </div>
+      ))}
+    </div>
   <div className="see-more-button-wrapper">
     <Link to="/campaigns"><button className="see-more-button">See More Campaigns</button></Link>
   </div>

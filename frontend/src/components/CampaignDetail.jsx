@@ -36,9 +36,9 @@ const CampaignDetail = () => {
   useEffect(() => {
     async function fetchCampaign() {
       try {
-        const provider = new ethers.BrowserProvider(window.ethereum);
-        const signer = await provider.getSigner();
-        const contract = new ethers.Contract(CONTRACT_ADDRESS, FundABI.abi, signer);
+        const provider = new ethers.JsonRpcProvider("https://rpc-amoy.polygon.technology/");
+        // const signer = await provider.getSigner();
+        const contract = new ethers.Contract(CONTRACT_ADDRESS, FundABI.abi, provider);
 
         const [
             names,
