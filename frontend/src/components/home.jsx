@@ -186,8 +186,7 @@ const Home = () => {
             <div className="circle">{step.number}</div>
             <h3 className="step-title">{step.title}</h3>
             <p className="step-description">{step.description}</p>
-            {/* Add a horizontal line except for the last step */}
-            {index < steps.length - 1 && <div className="line"></div>}
+             
           </div>
         ))}
       </div>
@@ -233,14 +232,14 @@ const Home = () => {
     <Link to="/campaigns"><button className="see-more-button">See More Campaigns</button></Link>
   </div>
 </section>
-
-
-    </div>
-    <footer className="footer">
+<footer className="footer">
   <div className="footer-content">
     <p>&copy; {new Date().getFullYear()} sexyprogrammer. All rights reserved.</p>
   </div>
 </footer>
+
+    </div>
+    
 
     </>
   );
