@@ -81,6 +81,10 @@
     cursor: pointer;
     white-space: nowrap;
   }
+  .donate-b{
+    align-items: center;
+    justify-content: center;
+  }
   
   .donate-button:hover {
     background-color: #00b285;

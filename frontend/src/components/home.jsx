@@ -111,7 +111,7 @@ const Home = () => {
           <option>Healthcare</option>
           <option>Disaster Relief</option>
         </select>
-    <Link to= "/campaigns"> <button className="donate-button">Donate</button></Link>  
+    <Link to= "/campaigns"className="donate_b"> <button className="donate-button">Donate</button></Link>  
       </div>
     </div>
   </div>
