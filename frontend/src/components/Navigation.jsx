@@ -1,7 +1,7 @@
 import { createAppKit } from '@reown/appkit/react'
 import { useState, useEffect } from 'react'; 
 import { ethers, Contract} from 'ethers'
-
+ 
 import { WagmiProvider } from 'wagmi'
 import { arbitrum, mainnet ,polygonAmoy,polygon} from '@reown/appkit/networks'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -63,7 +63,8 @@ export function Navigation({ children }) {
             <div className='appkit_button'>
            <w3m-button/>
             </div>
-            
+            <Link to={`/mycampaign/${address}`}> <button><MdOutlineAccountCircle className='navigation_account'/></button></Link>
+
             </div>
         </div>
         

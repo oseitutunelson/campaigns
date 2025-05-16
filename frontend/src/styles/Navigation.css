@@ -18,7 +18,7 @@
 }
 .navigation_buttons button{
     background-color: transparent;
-    border: 1px solid #34a853;
+    border: none;
     font-size: 1rem;
     margin: 0 0.5rem;
     cursor: pointer;
@@ -30,13 +30,12 @@
 }
 .navigation_account{
     cursor: pointer;
-    color: blueviolet;
+    color: #34a853;
     font-size: 1.3rem;
-    margin-top: 0.5rem;
+    margin-top: -1rem;
 }
 .navigation_buttons button:hover{
-    background-color: #34a853;
-    border: none;
+     
     transition: 0.3s ease-in;
-    color: #fff;
+ 
 }

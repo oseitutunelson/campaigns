@@ -4,6 +4,8 @@ import App from './App'
 import CreateCampaign from './components/CreateCampaign'; 
 import Campaigns from './components/Campaigns';
 import CampaignDetail from './components/CampaignDetail';
+import MyCampaigns from './components/MyCampaign';
+
 
 function AppRoutes() {
 
@@ -15,6 +17,8 @@ function AppRoutes() {
     <Route path="/createcampaign" element={<CreateCampaign/>} />
     <Route path="/campaigns" element={<Campaigns/>} />
     <Route path="/campaign/:id" element={<CampaignDetail />} />
+    <Route path="/mycampaign/:id" element={<MyCampaigns />} />
+
     </Routes>
 </BrowserRouter>
     </>
