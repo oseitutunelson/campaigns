@@ -30,7 +30,7 @@ const steps = [
   {
     number: '04',
     title: 'Receive your funds',
-    description: 'Receive or offer your collect by requesting a transfer to a bank account.',
+    description: 'Receive or offer your collect by requesting a transfer to a crypto wallet.',
   },
 ];
 
@@ -111,7 +111,7 @@ const Home = () => {
           <option>Healthcare</option>
           <option>Disaster Relief</option>
         </select>
-        <button className="donate-button">Donate</button>
+    <Link to= "/campaigns"> <button className="donate-button">Donate</button></Link>  
       </div>
     </div>
   </div>
@@ -236,7 +236,12 @@ const Home = () => {
 
 
     </div>
-  
+    <footer className="footer">
+  <div className="footer-content">
+    <p>&copy; {new Date().getFullYear()} sexyprogrammer. All rights reserved.</p>
+  </div>
+</footer>
+
     </>
   );
 };

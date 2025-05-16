@@ -358,6 +358,9 @@
    .latest-campaigns-section{
     text-align: center;
     margin-top: 3rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
    }
    .latest-campaigns-section h2{
     font-size: 2.2rem;
@@ -383,7 +386,7 @@
   }
   .c-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
     padding: 20px;
   }
@@ -394,7 +397,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     transition: box-shadow 0.3s ease;
-    width: 300px;
+    width: 350px;
     margin-left: 10px;
   }
   
@@ -447,3 +450,17 @@
     margin: 1rem 2rem;
     font-size: 2.75rem;
   }
+  .footer {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer-content p {
+    color: #333;
+    font-size: 14px;
+    margin: 0;
+  }
+  

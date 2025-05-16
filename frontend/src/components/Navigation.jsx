@@ -57,7 +57,7 @@ export function Navigation({ children }) {
     <WagmiProvider config={wagmiAdapter.wagmiConfig}>
         <div className='navigation'>
             <div className='navigation_logo'>
-            <h3>Campaigns</h3>  
+            <Link to="/">  <h3>Campaigns</h3> </Link> 
                        </div>
             <div className='navigation_buttons'>
             <div className='appkit_button'>
