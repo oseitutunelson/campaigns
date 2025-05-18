@@ -1,13 +1,16 @@
-# Sample Hardhat Project
+# 🏗️ Campaigns - Decentralized Crowdfunding dApp
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+Campaigns is a decentralized crowdfunding platform that allows users to create, fund, and track fundraising campaigns on the blockchain. Built using Solidity, React, Vite, and Chainlink Automation, this platform ensures transparency, security, and decentralization.
 
-Try running some of the following tasks:
+## 🚀 Features
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
+- ✅ Create and manage fundraising campaigns
+- 💰 Fund campaigns with ETH
+- ⏰ Automatic deadline tracking using Chainlink Automation
+- 👥 View all campaigns or filter by your own contributions
+- 🔍 View individual campaign details
+- 🌐 IPFS support for image uploads (via Pinata)
+- 📦 Deployed using Vercel and Hardhat
+
+ 
+
